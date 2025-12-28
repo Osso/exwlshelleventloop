@@ -11,7 +11,7 @@ description = "sessionlock binding for iced"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-default = ["tiny-skia", "wgpu", "fira-sans", "linux-theme-detection"]
+default = ["tiny-skia", "wgpu", "fira-sans", "linux-theme-detection", "clipboard"]
 tiny-skia = ["iced/tiny-skia", "iced_renderer/tiny-skia"]
 wgpu = ["iced/wgpu", "iced_renderer/wgpu"]
 fira-sans = ["iced/fira-sans", "iced_renderer/fira-sans"]
@@ -19,6 +19,7 @@ debug = ["iced/debug"]
 time-travel = ["iced/time-travel"]
 unconditional-rendering = ["iced/unconditional-rendering"]
 linux-theme-detection = ["iced/linux-theme-detection", "dep:mundy"]
+clipboard = ["dep:window_clipboard"]
 
 [dependencies]
 iced_sessionlock_macros.workspace = true
@@ -35,7 +36,7 @@ tracing.workspace = true
 thiserror.workspace = true
 sessionlockev.workspace = true
 futures.workspace = true
-window_clipboard.workspace = true
+window_clipboard = { workspace = true, optional = true }
 log.workspace = true
 
 # workspace features cannot be optional so we need to define the dependency here
